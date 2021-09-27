@@ -1,0 +1,149 @@
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #7881a1;
+$input-text-active: #bfd2ff;
+
+html {
+  box-sizing: border-box;
+  font-size: 18px;
+  color: $input-text-inactive;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+a {
+  text-decoration: none;
+}
+input {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+// some basic page styles
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    #373b52,
+    #252736 50%,
+    #1d1e26
+  );
+}
+
+// gradient animation
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 1.4rem 2rem 1.6rem;
+  background: rgba(57, 63, 84, 0.8);
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(
+      to right,
+      #b294ff,
+      #57e6e6,
+      #feffb8,
+      #57e6e6,
+      #b294ff,
+      #57e6e6
+    );
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+  }
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: $input-text-active;
+  font-size: 1.9rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  width: 100%;
+  &::-webkit-input-placeholder {
+    color: $input-text-inactive;
+  }
+  @media screen and (max-width: 320px) {
+    font-size: 1rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.node-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    #373b52,
+    #252736 70%,
+    #1d1e26
+  );
+  flex-grow: 1;
+}
+
+.node-list-item {
+  margin: 1.5rem;
+}
+
+.no-nodes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+}
