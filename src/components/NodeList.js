@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 export const NodeList = function (props) {
   if (!props.nodes || !props.nodes.length) {
-    return <p className="no-nodes">No nodes to display</p>;
+    return <p className="no-nodes">No nodes to display</p>
   }
 
   function renderFilteredNodes(nodes, isChildren = false) {
@@ -16,9 +16,9 @@ export const NodeList = function (props) {
           {renderFilteredNodes(node.children, true)}
           {!isChildren && <br />}
         </span>
-      );
-    });
+      )
+    })
   }
 
-  return <div className="node-list">{renderFilteredNodes(props.nodes)}</div>;
-};
+  return <div className="node-list">{renderFilteredNodes(props.nodes)}</div>
+}
