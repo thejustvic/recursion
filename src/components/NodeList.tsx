@@ -1,12 +1,10 @@
-import React from 'react'
-
-export const NodeList = function (props) {
+export const NodeList = function (props: any) {
   if (!props.nodes || !props.nodes.length) {
     return <p className="no-nodes">No nodes to display</p>
   }
 
-  function renderFilteredNodes(nodes, isChildren = false) {
-    return nodes.map((node) => {
+  function renderFilteredNodes(nodes: any, isChildren = false) {
+    return nodes.map((node: any) => {
       return (
         <span className={!isChildren ? 'node-list-item' : ''} key={node.name}>
           {node.level}
