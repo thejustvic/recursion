@@ -1,10 +1,20 @@
-export const NodeList = function (props: any) {
-  if (!props.nodes || !props.nodes.length) {
+type Node = {
+  level: string,
+  name: string,
+  children: Node[]
+}
+
+type NodeListProps = {
+  nodes: Node[];
+}
+
+export const NodeList: React.FC<NodeListProps> = ({nodes}) => {
+  if (!nodes.length) {
     return <p className="no-nodes">No nodes to display</p>
   }
 
-  function renderFilteredNodes(nodes: any, isChildren = false) {
-    return nodes.map((node: any) => {
+  function renderFilteredNodes(nodes: Node[], isChildren = false) {
+    return nodes.map((node) => {
       return (
         <span className={!isChildren ? 'node-list-item' : ''} key={node.name}>
           {node.level}
@@ -18,5 +28,5 @@ export const NodeList = function (props: any) {
     })
   }
 
-  return <div className="node-list">{renderFilteredNodes(props.nodes)}</div>
+  return <div className="node-list">{renderFilteredNodes(nodes)}</div>
 }
